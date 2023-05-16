@@ -17,11 +17,13 @@
     let i = event.target.id.split("_")[0];
     let j = event.target.id.split("_")[1];
 
-    if (event.target.classList.contains("inhabited")) {
-      event.target.classList.remove("inhabited");
+    let classList = event.target.classList;
+
+    if (classList.contains("inhabited")) {
+      classList.remove("inhabited");
       board.setCell(i, j, 0);
     } else {
-      event.target.classList.add("inhabited");
+      classList.add("inhabited");
       board.setCell(i, j, 1);
     }
   };
