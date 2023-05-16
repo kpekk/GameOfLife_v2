@@ -15,14 +15,12 @@
     }, 1000 / gameSpeed);
   };
 
-  // todo stop method is not working
   const stopGame = () => {
-    clearInterval(interval);
+    clearInterval(interval);      
   };
 
   const resetBoard = () => {
     stopGame();
-    clearInterval(interval);
     board.resetBoard();
   };
 </script>
@@ -31,7 +29,7 @@
   <Board bind:this={board} />
   <Controls
     on:resetBoard={resetBoard}
-    on:pauseGame={stopGame}
+    on:stopGame={stopGame}
     on:startGame={startGame}
     bind:gameSpeed
   />
