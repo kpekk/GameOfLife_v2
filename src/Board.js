@@ -1,5 +1,4 @@
 export default class Board {
-  //todo min board siza 10x15
   constructor(rows, cols) {
     this.board = this.createBoardOfSize(rows, cols);
   }
@@ -122,18 +121,21 @@ export default class Board {
   };
 
   cleanUpXAxis = (firstXIndex, lastXIndex) => {
-    this.board = this.board.slice(
-      firstXIndex < 2 ? 0 : firstXIndex - 2,
-      lastXIndex + 3
-    );
+    //todo keep x amt of space from both sides equally?
+    let start = firstXIndex < 2 ? 0 : firstXIndex - 2;
+    let end =
+      lastXIndex + 3 > firstXIndex + 10 ? lastXIndex + 3 : firstXIndex + 10;
+    console.log(end);
+    this.board = this.board.slice(start, end);
   };
 
   cleanUpYAxis = (firstYIndex, lastYIndex) => {
+    let start = firstYIndex < 2 ? 0 : firstYIndex - 2;
+    let end =
+      lastYIndex + 3 > firstYIndex + 15 ? lastYIndex + 3 : firstYIndex + 15;
+
     for (let i = 0; i < this.board.length; i++) {
-      this.board[i] = this.board[i].slice(
-        firstYIndex < 2 ? 0 : firstYIndex - 2,
-        lastYIndex + 3
-      );
+      this.board[i] = this.board[i].slice(start, end);
     }
   };
 
@@ -236,7 +238,7 @@ export default class Board {
 
   drawShape = (i, j, shapeCoords) => {
     shapeCoords.forEach((coord) => {
-      this.increaseBoardSizeIfNeeded()
+      this.increaseBoardSizeIfNeeded();
       this.setCell(i + coord[0], j + coord[1], 1);
     });
   };
