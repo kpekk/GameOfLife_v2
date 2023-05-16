@@ -9,7 +9,7 @@
   };
 
   const addShape = (event) => {
-    dispatch("addShape", event.target.innerHTML);
+    dispatch("addShape", event.target.id);
   };
 </script>
 
@@ -22,25 +22,25 @@
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div>
       <h2>Still lifes</h2>
-      <div class="menu-item" on:click={addShape}>Block</div>
-      <div class="menu-item" on:click={addShape}>Beehive</div>
-      <div class="menu-item" on:click={addShape}>Loaf</div>
-      <div class="menu-item" on:click={addShape}>Boat</div>
-      <div class="menu-item" on:click={addShape}>Tub</div>
+      <div class="menu-item" on:click={addShape} id="block">Block</div>
+      <div class="menu-item" on:click={addShape} id="beehive">Beehive</div>
+      <div class="menu-item" on:click={addShape} id="loaf">Loaf</div>
+      <div class="menu-item" on:click={addShape} id="boat">Boat</div>
+      <div class="menu-item" on:click={addShape} id="tub">Tub</div>
     </div>
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div>
       <h2>Oscillators</h2>
-      <div class="menu-item" on:click={addShape}>Blinker</div>
-      <div class="menu-item" on:click={addShape}>Beacon</div>
+      <div class="menu-item" on:click={addShape} id="blinker">Blinker</div>
+      <div class="menu-item" on:click={addShape} id="beacon">Beacon</div>
     </div>
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div>
       <h2>Spaceships</h2>
-      <div class="menu-item" on:click={addShape}>Glider</div>
-      <div class="menu-item" on:click={addShape}>LWSS</div>
+      <div class="menu-item" on:click={addShape} id="glider">Glider</div>
+      <div class="menu-item" on:click={addShape} id="lwss">LWSS</div>
     </div>
   </div>
 {/if}
