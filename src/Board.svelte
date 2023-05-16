@@ -1,5 +1,6 @@
 <script>
   import Board from "./Board.js";
+  import SideNav from "./SideNav.svelte";
 
   let board = new Board(5, 5);
 
@@ -29,6 +30,7 @@
   };
 </script>
 
+<SideNav></SideNav>
 <div class="field-container">
   <table cellspacing="0">
     {#each board.board as row, i}

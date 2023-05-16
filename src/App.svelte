@@ -6,8 +6,6 @@
 
 <main>
   <Header />
-  <SideNav></SideNav>
-
   <Game />
 </main>
 
