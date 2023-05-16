@@ -8,15 +8,15 @@
   let board;
 
   const startGame = () => {
-    clearInterval(interval);
-
+    stopGame();
+    
     interval = setInterval(() => {
       board.nextState();
     }, 1000 / gameSpeed);
   };
 
   const stopGame = () => {
-    clearInterval(interval);      
+    clearInterval(interval);
   };
 
   const resetBoard = () => {
