@@ -21,7 +21,7 @@
 </script>
 
 <div class="controls-container">
-  <div class="buttons">
+  <div>
     <button on:click={startGame}>Start</button>
     <button on:click={stopGame}>Stop</button>
     <button on:click={resetBoard}>Reset</button>
