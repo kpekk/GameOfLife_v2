@@ -1,5 +1,10 @@
+<script>
+  import SideNav from "./SideNav.svelte";
+</script>
+
 <div class="header">
   <h1>Game of life</h1>
+  <SideNav />
 </div>
 
 <style>
