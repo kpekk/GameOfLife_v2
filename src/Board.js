@@ -236,6 +236,7 @@ export default class Board {
 
   drawShape = (i, j, shapeCoords) => {
     shapeCoords.forEach((coord) => {
+      this.increaseBoardSizeIfNeeded()
       this.setCell(i + coord[0], j + coord[1], 1);
     });
   };
