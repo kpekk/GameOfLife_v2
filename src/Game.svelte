@@ -9,7 +9,7 @@
 
   const startGame = () => {
     stopGame();
-    
+
     interval = setInterval(() => {
       board.nextState();
     }, 1000 / gameSpeed);
@@ -28,9 +28,9 @@
 <div class="game-container">
   <Board bind:this={board} />
   <Controls
-    on:resetBoard={resetBoard}
-    on:stopGame={stopGame}
     on:startGame={startGame}
+    on:stopGame={stopGame}
+    on:resetBoard={resetBoard}
     bind:gameSpeed
   />
 </div>
