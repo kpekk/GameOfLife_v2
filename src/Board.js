@@ -161,7 +161,7 @@ export default class Board {
     }).length;
   };
 
-  decideFate = (value, neighbourCount) => {
+  decideCellFate = (value, neighbourCount) => {
     if (value === 1 && !(neighbourCount === 2 || neighbourCount === 3)) {
       return 0;
     } else if (value === 0 && neighbourCount === 3) {
@@ -185,7 +185,7 @@ export default class Board {
 
     for (let i = 0; i < this.board.length; i++) {
       for (let j = 0; j < this.board[0].length; j++) {
-        newGameBoard[i + xcoordIncrease][j + ycoordIncrease] = this.decideFate(
+        newGameBoard[i + xcoordIncrease][j + ycoordIncrease] = this.decideCellFate(
           this.board[i][j],
           this.neighbourCount(i, j)
         );
