@@ -9,8 +9,6 @@
   };
 
   const addShape = (event) => {
-    //todo get cell that was clicked
-    console.log(event.target.innerHTML);
     dispatch("addShape", event.target.id);
   };
 </script>

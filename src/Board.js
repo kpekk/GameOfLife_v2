@@ -194,38 +194,38 @@ export default class Board {
     this.board = newGameBoard;
   };
 
-  addShape = (shape) => {
+  addShape = (i, j, shape) => {
     switch (shape) {
       case "block": {
-        this.drawShape(this.blockCoords);
+        this.drawShape(i, j, this.blockCoords);
         break;
       }
       case "beehive": {
-        this.drawShape(this.beeHiveCoords);
+        this.drawShape(i, j, this.beeHiveCoords);
         break;
       }
       case "loaf": {
-        this.drawShape(this.loafCoords);
+        this.drawShape(i, j, this.loafCoords);
         break;
       }
       case "tub": {
-        this.drawShape(this.tubCoords);
+        this.drawShape(i, j, this.tubCoords);
         break;
       }
       case "blinker": {
-        this.drawShape(this.blinkerCoords);
+        this.drawShape(i, j, this.blinkerCoords);
         break;
       }
       case "beacon": {
-        this.drawShape(this.beaconCoords);
+        this.drawShape(i, j, this.beaconCoords);
         break;
       }
       case "glider": {
-        this.drawShape(this.gliderCoords);
+        this.drawShape(i, j, this.gliderCoords);
         break;
       }
       case "lwss": {
-        this.drawShape(this.lwssCoords);
+        this.drawShape(i, j, this.lwssCoords);
         break;
       }
       default: {
@@ -234,12 +234,9 @@ export default class Board {
     }
   };
 
-  drawShape = (shapeCoords) => {
-    let x = Math.floor(this.board.length / 2);
-    let y = Math.floor(this.board[0].length / 2);
-
+  drawShape = (i, j, shapeCoords) => {
     shapeCoords.forEach((coord) => {
-      this.setCell(x + coord[0], y + coord[1], 1);
+      this.setCell(i + coord[0], j + coord[1], 1);
     });
   };
 

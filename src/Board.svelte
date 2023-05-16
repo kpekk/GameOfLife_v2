@@ -4,6 +4,8 @@
 
   let board = new Board(10, 15);
 
+  let shapeToAdd = undefined;
+
   export const nextState = () => {
     board.nextState();
     board = board;
@@ -14,24 +16,29 @@
     board = board;
   };
 
-  const cellClicked = (event) => {
-    let i = event.target.id.split("_")[0];
-    let j = event.target.id.split("_")[1];
-
-    let classList = event.target.classList;
-
-    if (classList.contains("inhabited")) {
-      classList.remove("inhabited");
-      board.setCell(i, j, 0);
-    } else {
-      classList.add("inhabited");
-      board.setCell(i, j, 1);
-    }
+  const addShape = (event) => {
+    shapeToAdd = event.detail;
   };
 
-  const addShape = (event) => {
-    board.addShape(event.detail)
-    board = board
+  const cellClicked = (event) => {
+    let i = parseInt(event.target.id.split("_")[0]);
+    let j = parseInt(event.target.id.split("_")[1]);
+
+    if (shapeToAdd) {
+      board.addShape(i, j, shapeToAdd);
+      shapeToAdd = undefined;
+      board = board
+    } else {
+      let classList = event.target.classList;
+
+      if (classList.contains("inhabited")) {
+        classList.remove("inhabited");
+        board.setCell(i, j, 0);
+      } else {
+        classList.add("inhabited");
+        board.setCell(i, j, 1);
+      }
+    }
   };
 </script>
 
