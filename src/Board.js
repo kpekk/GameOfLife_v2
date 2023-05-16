@@ -197,12 +197,35 @@ export default class Board {
   addShape = (shape) => {
     switch (shape) {
       case "block": {
-        console.log("drawing block");
-        this.drawBlock();
+        this.drawShape(this.blockCoords);
         break;
       }
       case "beehive": {
-        console.log("drawing beehive");
+        this.drawShape(this.beeHiveCoords);
+        break;
+      }
+      case "loaf": {
+        this.drawShape(this.loafCoords);
+        break;
+      }
+      case "tub": {
+        this.drawShape(this.tubCoords);
+        break;
+      }
+      case "blinker": {
+        this.drawShape(this.blinkerCoords);
+        break;
+      }
+      case "beacon": {
+        this.drawShape(this.beaconCoords);
+        break;
+      }
+      case "glider": {
+        this.drawShape(this.gliderCoords);
+        break;
+      }
+      case "lwss": {
+        this.drawShape(this.lwssCoords);
         break;
       }
       default: {
@@ -211,13 +234,82 @@ export default class Board {
     }
   };
 
-  drawBlock = () => {
+  drawShape = (shapeCoords) => {
     let x = Math.floor(this.board.length / 2);
     let y = Math.floor(this.board[0].length / 2);
 
-    this.setCell(x, y, 1);
-    this.setCell(x, y + 1, 1);
-    this.setCell(x + 1, y, 1);
-    this.setCell(x + 1, y + 1, 1);
+    shapeCoords.forEach((coord) => {
+      this.setCell(x + coord[0], y + coord[1], 1);
+    });
   };
+
+  blockCoords = [
+    [0, 0],
+    [0, 1],
+    [1, 0],
+    [1, 1],
+  ];
+
+  beeHiveCoords = [
+    [0, 1],
+    [0, 2],
+    [1, 0],
+    [1, 3],
+    [2, 1],
+    [2, 2],
+  ];
+
+  loafCoords = [
+    [0, 1],
+    [0, 2],
+    [1, 0],
+    [1, 3],
+    [2, 1],
+    [2, 3],
+    [3, 2],
+  ];
+
+  tubCoords = [
+    [0, 1],
+    [1, 0],
+    [1, 2],
+    [2, 1],
+  ];
+
+  blinkerCoords = [
+    [0, 0],
+    [1, 0],
+    [2, 0],
+  ];
+
+  beaconCoords = [
+    [0, 0],
+    [0, 1],
+    [1, 0],
+    [1, 1],
+    [2, 2],
+    [2, 3],
+    [3, 2],
+    [3, 3],
+  ];
+
+  gliderCoords = [
+    [0, 1],
+    [1, 2],
+    [2, 0],
+    [2, 1],
+    [2, 2],
+  ];
+
+  lwssCoords = [
+    [0, 1],
+    [0, 4],
+    [1, 0],
+    [2, 0],
+    [2, 4],
+    [3, 0],
+    [3, 1],
+    [3, 2],
+    [3, 3],
+  ];
 }
