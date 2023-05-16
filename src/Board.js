@@ -31,9 +31,9 @@ export default class Board {
     let y_increased = 0;
 
     x_increased = this.addRowToTopIfNeeded();
-    y_increased = this.addColumnToLeftIfNeeded();
-
     this.addRowToBottomIfNeeded();
+
+    y_increased = this.addColumnToLeftIfNeeded();
     this.addColumnToRightIfNeeded();
 
     return [x_increased, y_increased];
@@ -43,7 +43,6 @@ export default class Board {
     for (let i = 0; i < this.board[0].length; i++) {
       if (this.board[this.board.length - 1][i]) {
         this.board.push(new Array(this.board[0].length).fill(0));
-
         break;
       }
     }
@@ -74,7 +73,7 @@ export default class Board {
 
   addRowToTopIfNeeded = () => {
     for (let i = 0; i < this.board.length; i++) {
-      if (this.board[0][i] === 1) {
+      if (this.board[0][i]) {
         this.board.unshift(new Array(this.board[0].length).fill(0));
         return 1;
       }
@@ -173,7 +172,6 @@ export default class Board {
   };
 
   nextState = () => {
-    // todo increasing size bot up and down or both left and right loses a row
     let sizeIncreased = this.increaseBoardSizeIfNeeded();
 
     this.cleanupOuterRows();
@@ -182,12 +180,12 @@ export default class Board {
     let ycoordIncrease = sizeIncreased[1];
 
     let newGameBoard = this.createBoardOfSize(
-      this.board.length,
-      this.board[0].length
+      this.board.length + xcoordIncrease,
+      this.board[0].length + ycoordIncrease
     );
 
-    for (let i = 0; i < this.board.length - xcoordIncrease; i++) {
-      for (let j = 0; j < this.board[0].length - ycoordIncrease; j++) {
+    for (let i = 0; i < this.board.length; i++) {
+      for (let j = 0; j < this.board[0].length; j++) {
         newGameBoard[i + xcoordIncrease][j + ycoordIncrease] = this.decideFate(
           this.board[i][j],
           this.neighbourCount(i, j)
