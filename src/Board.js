@@ -1,4 +1,5 @@
 export default class Board {
+  //todo min board siza 10x15
   constructor(rows, cols) {
     this.board = this.createBoardOfSize(rows, cols);
   }
@@ -22,7 +23,7 @@ export default class Board {
   };
 
   resetBoard = () => {
-    this.board = this.createBoardOfSize(5, 5);
+    this.board = this.createBoardOfSize(10, 15);
   };
 
   increaseBoardSizeIfNeeded = () => {
@@ -104,8 +105,8 @@ export default class Board {
 
     return boardIsEmpty
       ? [
-          [0, 5],
-          [0, 5],
+          [0, 10],
+          [0, 15],
         ]
       : [
           [firstXIndex, lastXIndex],

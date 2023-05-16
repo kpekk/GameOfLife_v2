@@ -2,7 +2,7 @@
   import Board from "./Board.js";
   import SideNav from "./SideNav.svelte";
 
-  let board = new Board(5, 5);
+  let board = new Board(10, 15);
 
   export const nextState = () => {
     board.nextState();
