@@ -116,8 +116,8 @@ export default class Board {
   cleanupOuterRows = () => {
     let coords = this.firstAndLastElemCoords(this.board);
 
-    this.cleanUpXAxis(coords[0][0],coords[0][1]);
-    this.cleanUpYAxis(coords[1][0],coords[1][1]);
+    this.cleanUpXAxis(coords[0][0], coords[0][1]);
+    this.cleanUpYAxis(coords[1][0], coords[1][1]);
   };
 
   cleanUpXAxis = (firstXIndex, lastXIndex) => {
@@ -185,11 +185,9 @@ export default class Board {
 
     for (let i = 0; i < this.board.length; i++) {
       for (let j = 0; j < this.board[0].length; j++) {
-        newGameBoard[i + xcoordIncrease][j + ycoordIncrease] = this.decideCellFate(
-          this.board[i][j],
-          this.neighbourCount(i, j)
-        );
-      } 
+        newGameBoard[i + xcoordIncrease][j + ycoordIncrease] =
+          this.decideCellFate(this.board[i][j], this.neighbourCount(i, j));
+      }
     }
 
     this.board = newGameBoard;
