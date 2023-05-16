@@ -10,7 +10,6 @@
 
   const addShape = (event) => {
     dispatch("addShape", event.target.innerHTML);
-    console.log("sent:", event.target.innerHTML);
   };
 </script>
 
