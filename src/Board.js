@@ -193,4 +193,31 @@ export default class Board {
 
     this.board = newGameBoard;
   };
+
+  addShape = (shape) => {
+    switch (shape) {
+      case "block": {
+        console.log("drawing block");
+        this.drawBlock();
+        break;
+      }
+      case "beehive": {
+        console.log("drawing beehive");
+        break;
+      }
+      default: {
+        console.log("i dont know that shape yet!");
+      }
+    }
+  };
+
+  drawBlock = () => {
+    let x = Math.floor(this.board.length / 2);
+    let y = Math.floor(this.board[0].length / 2);
+
+    this.setCell(x, y, 1);
+    this.setCell(x, y + 1, 1);
+    this.setCell(x + 1, y, 1);
+    this.setCell(x + 1, y + 1, 1);
+  };
 }

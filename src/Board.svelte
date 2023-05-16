@@ -28,9 +28,14 @@
       board.setCell(i, j, 1);
     }
   };
+
+  const addShape = (event) => {
+    board.addShape(event.detail)
+    board = board
+  };
 </script>
 
-<SideNav></SideNav>
+<SideNav on:addShape={addShape} />
 <div class="field-container">
   <table cellspacing="0">
     {#each board.board as row, i}

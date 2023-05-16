@@ -9,6 +9,7 @@
   };
 
   const addShape = (event) => {
+    console.log(event.target.innerHTML)
     dispatch("addShape", event.target.id);
   };
 </script>
