@@ -9,7 +9,8 @@
   };
 
   const addShape = (event) => {
-    console.log(event.target.innerHTML)
+    //todo get cell that was clicked
+    console.log(event.target.innerHTML);
     dispatch("addShape", event.target.id);
   };
 </script>
@@ -57,10 +58,10 @@
     height: 5vh;
     width: 5vh;
 
-    color: var(--dark-purple);
+    color: var(--primary);
     font-size: 4rem;
 
-    background-color: var(--secondary);
+    border: 0.1rem solid var(--primary);
     border-radius: 1rem;
     padding: 1rem;
   }

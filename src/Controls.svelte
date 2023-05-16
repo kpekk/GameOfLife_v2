@@ -44,7 +44,7 @@
 
   .slider-container {
     align-items: center;
-    background-color: var(--dark-purple);
+    border: 0.1rem solid var(--primary);
     border-radius: 2rem;
 
     width: 40rem;
