@@ -17,6 +17,7 @@
   };
 
   const addShape = (event) => {
+    // todo add notification "adding shape x"?
     shapeToAdd = event.detail;
   };
 
@@ -25,6 +26,7 @@
     let j = parseInt(event.target.id.split("_")[1]);
 
     if (shapeToAdd) {
+      // todo remove notification?
       board.addShape(i, j, shapeToAdd);
       shapeToAdd = undefined;
       board = board
@@ -74,6 +76,10 @@
 
   td {
     border: 0.1rem solid var(--darker);
+  }
+
+  td:hover {
+    border: 0.1rem solid var(--primary);
   }
 
   .inhabited {
