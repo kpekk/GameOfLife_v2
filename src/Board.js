@@ -121,11 +121,9 @@ export default class Board {
   };
 
   cleanUpXAxis = (firstXIndex, lastXIndex) => {
-    //todo keep x amt of space from both sides equally?
     let start = firstXIndex < 2 ? 0 : firstXIndex - 2;
     let end =
       lastXIndex + 3 > firstXIndex + 10 ? lastXIndex + 3 : firstXIndex + 10;
-    console.log(end);
     this.board = this.board.slice(start, end);
   };
 
